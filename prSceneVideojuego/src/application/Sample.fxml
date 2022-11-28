@@ -44,17 +44,20 @@
                <children>
                   <BorderPane layoutX="48.0" layoutY="87.0" prefHeight="373.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
-                        <Label text="Nuevo libro" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                        <Label text="Nuevo Videojuego" textAlignment="CENTER" BorderPane.alignment="CENTER">
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <BorderPane.margin>
+                              <Insets top="40.0" />
+                           </BorderPane.margin>
                         </Label>
                      </top>
                      <bottom>
-                        <Button fx:id="btnAnadir" mnemonicParsing="false" onAction="#anadirLibro" text="Añadir" BorderPane.alignment="CENTER">
+                        <Button fx:id="btnAnadir" mnemonicParsing="false" onAction="#anadirVideojuego" text="Añadir" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </BorderPane.margin>
@@ -73,14 +76,14 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Título" />
-                              <Label text="Editorial" GridPane.rowIndex="1" />
-                              <Label text="Autor/a" GridPane.rowIndex="2" />
-                              <Label text="Páginas" GridPane.rowIndex="3" />
-                              <TextField fx:id="txtTitulo" GridPane.columnIndex="1" />
-                              <TextField fx:id="txtAutor" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <TextField fx:id="txtPaginas" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <ChoiceBox fx:id="cbEditorial" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Nombre" />
+                              <Label text="Precio" GridPane.rowIndex="1" />
+                              <Label text="Consola" GridPane.rowIndex="2" />
+                              <Label text="PEGI" GridPane.rowIndex="3" />
+                              <TextField fx:id="txtNombre" GridPane.columnIndex="1" />
+                              <TextField fx:id="txtPrecio" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ChoiceBox fx:id="cbPEGI" prefHeight="25.0" prefWidth="171.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ChoiceBox fx:id="cbConsola" prefHeight="25.0" prefWidth="169.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
                      </center>
@@ -91,22 +94,22 @@
                <children>
                   <BorderPane layoutX="48.0" layoutY="87.0" prefHeight="373.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <top>
-                        <Label text="Listado de libros" BorderPane.alignment="CENTER">
+                        <Label prefHeight="27.0" prefWidth="104.0" text="Videojuegos" BorderPane.alignment="CENTER">
                            <font>
                               <Font size="18.0" />
                            </font>
                            <BorderPane.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="50.0" />
                            </BorderPane.margin>
                         </Label>
                      </top>
                      <center>
-                        <TableView fx:id="tableLibros" BorderPane.alignment="CENTER">
+                        <TableView fx:id="tableVideojuegos" BorderPane.alignment="CENTER">
                           <columns>
-                            <TableColumn fx:id="columnTitulo" prefWidth="69.0" text="Título" />
-                            <TableColumn fx:id="columnEditorial" prefWidth="81.0" text="Editorial" />
-                              <TableColumn fx:id="columnAutor" prefWidth="73.0" text="Autor/a" />
-                              <TableColumn fx:id="columnPaginas" prefWidth="72.0" text="Páginas" />
+                            <TableColumn fx:id="columnNombre" prefWidth="69.0" text="Nombre" />
+                            <TableColumn fx:id="columnPrecio" prefWidth="81.0" text="Precio" />
+                              <TableColumn fx:id="columnConsola" prefWidth="73.0" text="Consola" />
+                              <TableColumn fx:id="columnPEGI" prefWidth="72.0" text="PEGI" />
                           </columns>
                         </TableView>
                      </center>

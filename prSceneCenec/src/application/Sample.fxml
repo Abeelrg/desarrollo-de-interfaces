@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="351.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+<BorderPane prefHeight="351.0" prefWidth="528.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.IndexController">
    <center>
         <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="346.0" prefWidth="381.0" BorderPane.alignment="CENTER">
             <children>
             <ImageView fitHeight="110.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Downloads/descarga.jpg" />
+                  <Image url="@descarga.jpg" />
                </image>
                <VBox.margin>
                   <Insets top="10.0" />
