@@ -90,6 +90,7 @@ public class IndexController {
 			
 			while(rs.next()) {
 				Libro libro = new Libro(
+						rs.getInt("id"),
 						rs.getString("titulo"),
 						rs.getString("editorial"),
 						rs.getString("autor"),
@@ -182,8 +183,32 @@ public class IndexController {
 			alerta.setContentText("Porfavor,selecciona una tabla para borrarla");
 			alerta.showAndWait();
 		}else {
-			tableLibros.getItems().remove(indiceSeleccionado);
-			tableLibros.getSelectionModel().clearSelection();  
+			
+			//tableLibros.getItems().remove(indiceSeleccionado);
+			//tableLibros.getSelectionModel().clearSelection();  
+			
+			//Nos conectamos a la BD
+			DatabaseConnection dbConnection = new DatabaseConnection();
+			Connection connection = dbConnection.getConnection();
+			
+			
+			try {
+				String query ="delete from libros where id = ?";
+				PreparedStatement ps = connection.prepareStatement(query);
+				Libro libro = tableLibros.getSelectionModel().getSelectedItem();
+				ps.setInt(1, libro.getId());
+				ps.executeUpdate();
+				
+				tableLibros.getSelectionModel().clearSelection();
+				//Actualizamos la tabla
+				ObservableList listaLibrosBD = getLibrosBD();
+				tableLibros.setItems(listaLibrosBD);
+				//Cerramos conexion
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 
