@@ -7,15 +7,15 @@ import javafx.beans.property.SimpleStringProperty;
 public class Videojuego {
 	
 	private SimpleStringProperty nombre;
-	private SimpleFloatProperty precio;
+	private SimpleIntegerProperty precio;
 	private SimpleStringProperty consola;
 	private SimpleStringProperty pegi;
 	
-	public Videojuego(String nombre, Float precio, String consola,
+	public Videojuego(String nombre, Integer precio, String consola,
 			String pegi) {
 		super();
 		this.nombre = new SimpleStringProperty(nombre);
-		this.precio = new SimpleFloatProperty(precio);
+		this.precio = new SimpleIntegerProperty(precio);
 		this.consola = new SimpleStringProperty(consola);
 		this.pegi = new SimpleStringProperty(pegi);
 	}
@@ -28,12 +28,12 @@ public class Videojuego {
 		this.nombre = new SimpleStringProperty(nombre);
 	}
 	
-	public Float getPrecio() {
+	public Integer getPrecio() {
 		return precio.get();
 	}
 	
-	public void setPrecio(float precio) {
-		this.precio = new SimpleFloatProperty(precio);
+	public void setPrecio(int precio) {
+		this.precio = new SimpleIntegerProperty(precio);
 	}
 	
 	public String getConsola() {
