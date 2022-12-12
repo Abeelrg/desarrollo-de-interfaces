@@ -45,7 +45,7 @@
 }
 
 .table-view .column-header .label {
-    -fx-font-size: 20pt;
+    -fx-font-size: 10pt;
     -fx-text-fill: #063970;
     -fx-alignment: center-left;
     -fx-opacity: 1;

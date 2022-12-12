@@ -51,7 +51,7 @@ public class IndexController {
 	private Button btnAnadir;
 
 	private ObservableList<Libro> listaLibros = FXCollections
-			.observableArrayList(new Libro("La Biblia", "Planeta", "Jesús", 500));
+			.observableArrayList();
 
 	public ObservableList<String> listaEditoriales = FXCollections.observableArrayList("Planeta", "Altaya", "Kadokawa",
 			"Penguin Libros");
@@ -123,12 +123,39 @@ public class IndexController {
 				Libro l = new Libro(txtTitulo.getText(), cbEditorial.getValue().toString(), txtAutor.getText(),
 						Integer.parseInt(txtPaginas.getText()));
 
-				listaLibros.add(l);
-
+				//listaLibros.add(l);
+				//tableLibros.setItems(listaLibros);
+				
 				txtTitulo.clear();
 				cbEditorial.getSelectionModel().clearSelection();
 				txtAutor.clear();
 				txtPaginas.clear();
+				
+				//Nos conectamos a la BD
+				DatabaseConnection dbConnection = new DatabaseConnection();
+				Connection connection = dbConnection.getConnection();
+				
+				try {
+					//Aqui insertamos en la BD
+					
+					String query = "insert into libros (titulo, editorial, autor, paginas) values (?, ?, ?, ?)";
+					PreparedStatement ps = connection.prepareStatement(query);
+					ps.setString(1, l.getTitulo());
+					ps.setString(2, l.getEditorial());
+					ps.setString(3, l.getAutor());
+					ps.setInt(4, l.getPaginas());
+					ps.executeUpdate();
+					
+					//Cerramos la sesion
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+
+				ObservableList listaLibrosBD = getLibrosBD();
+				tableLibros.setItems(listaLibrosBD);
 			} else {
 				Alert alerta = new Alert(AlertType.ERROR);
 				alerta.setTitle("Error al insertar");
